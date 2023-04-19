@@ -1,0 +1,29 @@
+
+
+/* 태블릿 */
+@media screen and (min-width:769px)and (max-width:1024px){
+    
+    .login_box{
+        margin-left: 0;
+    }
+    
+}    
+
+/* 모바일 */
+@media screen and (min-width:360px)and (max-width:768px){
+    .body{
+        width: 100vw;
+        height: 100%;
+        background: #fff;
+    }
+    
+    .login_box{
+        width: 100vw;
+        margin: auto;
+    }
+
+    .id_btn{
+        width: 100%;
+        text-align: left;
+    }
+}    

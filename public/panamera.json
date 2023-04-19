@@ -1,0 +1,11 @@
+[
+    {"id":1, "model":"Panamera 4", "price":"150,300,000", "url":"img/model/panamera/panamera_1.jpg"},
+    {"id":2, "model":"Panamera 4 Platinum Edition", "price":"166,800,000", "url":"img/model/panamera/panamera_2.jpg"},
+    {"id":3, "model":"Panamera 4 Executive", "price":"158,800,000 KRW부터", "url":"img/model/panamera/panamera_3.jpg"},
+    {"id":4, "model":"Panamera 4 E-Hybrid", "price":"173,600,000 KRW부터", "url":"img/model/panamera/panamera_4.jpg"},
+    {"id":5, "model":"Panamera 4 E-Hybrid Platinum Edition", "price":"186,800,000 KRW부터", "url":"img/model/panamera/panamera_5.jpg"},
+    {"id":6, "model":"Panamera GTS", "price":"221,200,000 KRW부터", "url":"img/model/panamera/panamera_6.jpg"},
+    {"id":7, "model":"Panamera Turbo S", "price":"308,100,000 KRW부터", "url":"img/model/panamera/panamera_7.jpg"},
+    {"id":8, "model":"Panamera Turbo S E-Hybrid", "price":"317,800,000 KRW부터", "url":"img/model/panamera/panamera_8.jpg"}
+
+]

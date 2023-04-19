@@ -1,0 +1,26 @@
+.top_txt {
+    font-size: 4rem;
+    margin-left: 10rem;
+    font-weight: bold;
+}
+
+.txt_box {
+    text-align: center;
+    font-size: 4rem;
+    padding-top: 2rem;
+}
+
+.txt_box h2 {
+    padding-bottom: 2rem;
+}
+
+.txt_box .login_link {
+    border-radius:10rem;
+    background-color: antiquewhite;
+    padding: 2rem;
+}
+
+.txt_box .login_link:hover {
+    color: red;
+    transition: all ease 0.8s 0s;
+}

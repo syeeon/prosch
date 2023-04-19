@@ -1,0 +1,138 @@
+/* ** main ** */
+
+
+/* 태블릿 */
+@media screen and (min-width:769px)and (max-width:1024px){
+    .containerwrap{
+        padding: 0 6rem;
+    }
+}
+
+/* 모바일 */
+@media screen and (min-width:360px)and (max-width:768px){
+    .containerwrap{
+        padding: 0 3rem !important;
+    }
+
+    .title{
+        font-size: 3rem !important;
+    }
+}
+
+
+/* mainbanner */
+/* 태블릿 */
+@media screen and (min-width:769px)and (max-width:1024px){
+    .mainBanner .banner_txt :nth-child(1){
+        font-size: 5rem;
+    }
+    
+    .mainBanner .banner_txt :nth-child(2){
+        font-size: 2rem;
+        left: 3rem;
+    }
+
+    .mainBanner .banner_txt{
+        padding-left: 0rem;
+    }
+}
+
+/* 모바일 */
+@media screen and (min-width:360px)and (max-width:768px){
+    .mainBanner .banner_txt :nth-child(1){
+        font-size: 3rem;
+    }
+    
+    .mainBanner .banner_txt :nth-child(2){
+        font-size: 2rem;
+    }
+
+    .mainBanner .banner_txt{
+        margin-left: -7rem;
+    }
+
+}
+
+
+/* models */
+
+/* 태블릿 */
+@media screen and (min-width:769px)and (max-width:1024px){
+    
+    .model_wrap{
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+/* 모바일 */
+@media screen and (min-width:360px)and (max-width:768px){
+    .model_wrap{
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .link_top .price, .link_bottom{
+        display: none;
+    }
+
+    .model_box .img_box:hover .name{
+        color: red;
+        transition: all ease 0.8s 0s;
+    }
+}
+
+/* shopping tool */
+
+/* 태블릿 */
+@media screen and (min-width:769px)and (max-width:1024px){
+    .tool_4{
+        display: none;
+    }
+
+    .tools_box{
+        grid-template-columns: 2fr 1fr 1fr;
+    }
+
+}
+
+/* 모바일 */
+@media screen and (min-width:360px)and (max-width:768px){
+    .tool_4{
+        display: none;
+    }
+    
+    .tools_box{
+        grid-template-columns: repeat(auto-fit, 50%);
+    }
+    
+    .tool_1{
+        grid-column-start: 1;
+        grid-column-end: 5;
+    }
+}
+
+
+/* discover */
+
+/* 태블릿 */
+@media screen and (min-width:769px)and (max-width:1024px){
+    .discover_wrap li:nth-child(3), .discover_wrap li:nth-child(4){
+        display: none;
+    }
+
+    .discover_wrap{
+        grid-template-columns: 1fr 1fr;
+    }
+
+}
+
+/* 모바일 */
+@media screen and (min-width:360px)and (max-width:768px){
+    .discover_wrap li:nth-child(3), .discover_wrap li:nth-child(4){
+        display: none;
+    }
+
+    .discover_wrap{
+        grid-template-columns: 1fr 1fr;
+    }
+
+}

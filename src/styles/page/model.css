@@ -1,0 +1,41 @@
+.btn{
+    display : inline-block;
+    width: 20rem;
+    padding: 2rem 5rem;
+    border: 1px solid #000;
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.btn:hover{
+    color: red;
+    transition: all ease 1s 0s;
+}
+
+ .model_nav{
+    display: flex;
+    flex-direction: column;
+    margin-top: 5rem;
+} 
+
+.box_wrap{
+    display: flex;
+}
+
+
+.model_info{
+    width: 250px;
+    margin-right: 5rem;
+    display: inline-block;
+}
+
+.model_name {
+    margin: 5rem 0 4rem 0;
+    font-size: 5rem;
+    font-weight: bold;
+}
+
+.active .btn {
+    background-color: #777;
+    color: #fff
+}

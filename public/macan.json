@@ -1,0 +1,5 @@
+[
+    {"id":1, "model":"Macan", "price":"TBA", "url":"img/model/macan/macan_1.jpg"},
+    {"id":2, "model":"Macan S", "price":"103,000,000 KRW부터", "url":"img/model/macan/macan_2.jpg"},
+    {"id":3, "model":"Macan GTS", "price":"122,200,000 KRW부터", "url":"img/model/macan/macan_3.jpg"}
+]

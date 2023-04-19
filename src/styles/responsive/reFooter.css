@@ -1,0 +1,65 @@
+/* footer */
+
+/* 태블릿 */
+@media screen and (min-width:769px)and (max-width:1024px){
+
+    .footer_link .link_wrap{
+        grid-template-columns: 1fr 1fr; 
+        grid-template-rows: 1fr 1fr;
+    }
+
+}
+
+/* 모바일 */
+@media screen and (min-width:360px)and (max-width:768px){
+    .line{
+        display: none;
+    }
+
+    .footer_link{
+        margin: 5rem 0;
+    }
+
+    .footer_link .link_wrap{
+        display: block;
+    }
+
+    .link_wrap h3{
+        border-top: 1px solid #000;
+    }
+
+    .link_wrap .last{
+        border-bottom: 1px solid #000;
+    }
+
+
+    .panel-question {
+        cursor: pointer;
+    }
+    
+    .wrapwap {
+        display: block;
+    }
+
+    /* .active:hover {
+        content: #2212;
+    } */
+    
+    .panel-body{
+        display: none;
+    }
+
+    .active .panel-body {
+        display: block;
+    }
+
+    .show-menu{
+        display: block;
+        }
+        
+        .hide-menu{
+            display: none;
+        }
+
+
+}

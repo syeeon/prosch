@@ -1,0 +1,9 @@
+[
+    {"id":1, "model":"718 Cayman", "price":"91,600,000 KRW부터", "url":"img/model/model718/718_1.jpg"},
+    {"id":2, "model":"718 Boxster", "price":"96,300,000 KRW부터", "url":"img/model/model718/718_2.jpg"},
+    {"id":3, "model":"718 Cayman S", "price":"103,500,000 KRW부터", "url":"img/model/model718/718_3.jpg"},
+    {"id":4, "model":"718 Boxster S", "price":"108,200,000 KRW부터", "url":"img/model/model718/718_4.jpg"},
+    {"id":5, "model":"718 Cayman GTS 4.0", "price":"123,400,000 KRW부터", "url":"img/model/model718/718_5.jpg"},
+    {"id":6, "model":"718 Boxster GTS 4.0", "price":"128,200,000 KRW부터", "url":"img/model/model718/718_6.jpg"},
+    {"id":7, "model":"Boxster 25 Years", "price":"133,100,000 KRW부터", "url":"img/model/model718/718_7.jpg"}
+]

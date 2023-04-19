@@ -1,0 +1,10 @@
+[
+    {"id":1, "model":"Taycan", "price":"123,800,000 KRW부터", "url":"img/model/taycan/taycan_1.jpg"},
+    {"id":2, "model":"Taycan 4 Cross Turismo ", "price":"138,000,000 KRW부터", "url":"img/model/taycan/taycan_2.jpg"},
+    {"id":3, "model":"Taycan 4S", "price":"148,500,000 KRW부터", "url":"img/model/taycan/taycan_3.jpg"},
+    {"id":4, "model":"Taycan 4S Cross Turismo", "price":"154,500,000 KRW부터", "url":"img/model/taycan/taycan_4.jpg"},
+    {"id":5, "model":"Taycan GTS", "price":"180,300,000 KRW부터", "url":"img/model/taycan/taycan_5.jpg"},
+    {"id":6, "model":"Taycan Turbo", "price":"200,000,000 KRW부터", "url":"img/model/taycan/taycan_6.jpg"},
+    {"id":7, "model":"Taycan Turbo Cross Turismo", "price":"202,400,000 KRW부터", "url":"img/model/taycan/taycan_7.jpg"},
+    {"id":7, "model":"Taycan Turbo S", "price":"237,600,000 KRW부터", "url":"img/model/taycan/taycan_8.jpg"}
+]

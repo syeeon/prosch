@@ -1,0 +1,68 @@
+
+.join_txt{
+    padding: 5rem 0;
+}
+
+.join_txt h2{
+    font-size: 5rem;
+}
+
+.join_txt p{
+    font-size: 2rem;
+}
+
+/* step */
+
+.step_wrap{
+    margin-top: 8rem;
+}
+
+.step_wrap span{
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.err_txt{
+    color:rgb(224, 0, 0);
+}
+
+.txt{
+    padding: 1.5rem 0;
+}
+
+.txt label{
+    display: block;
+    padding-bottom: 0.5rem;
+}
+
+
+.join_email, .join_pwd{
+    width: 50%;
+    height: 5rem;
+}
+
+.chk_wrap{
+    padding: 2rem 0;
+}
+
+.chk_wrap div{
+    padding-bottom: 1rem;
+}
+
+.submit_btn{
+    background-color: red;
+    padding: 1rem;
+    border: 1px solid #eee;
+    color: #fff;
+    margin-bottom: 2.5rem;
+    height: 5rem;
+    box-sizing: border-box;
+}
+
+.submit_btn:hover{
+    background-color: rgb(152, 0, 20);
+    transition: all ease 1s 0s;
+}
+
+
+

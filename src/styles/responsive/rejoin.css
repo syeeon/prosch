@@ -1,0 +1,14 @@
+/* 태블릿 */
+@media screen and (min-width:769px)and (max-width:1024px){    
+
+    .join_email, .join_pwd{
+        width: 100%;
+    }
+}    
+
+/* 모바일 */
+@media screen and (min-width:360px)and (max-width:768px){
+    .left_p {
+        margin: 0 5rem;
+    }
+}    
