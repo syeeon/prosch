@@ -7,62 +7,62 @@ import {
     onAuthStateChanged,			
     signOut,						
     updatePassword,					
-  } from "firebase/auth";
-  import { auth } from "../firebase";
+} from "firebase/auth";
+import { auth } from "../firebase";
 
 
 function MyPage() {
 
-    const [user, setUser] = useState({});
-    const [pwValid, setPwValid] = useState(false);
+  const [user, setUser] = useState({});
+  const [pwValid, setPwValid] = useState(false);
 
-    useEffect(() => {
-        onAuthStateChanged(auth, (currentUser) => {
-        setUser(currentUser);
-        });
-    }, [user]);
+  useEffect(() => {
+      onAuthStateChanged(auth, (currentUser) => {
+      setUser(currentUser);
+      });
+  }, [user]);
 
-    const navigate = useNavigate();
+  const navigate = useNavigate();
 
-    const logout = async () => {
-       await signOut(auth); 
-       alert('정상적으로 로그아웃 되었습니다.')
-       navigate('/');
-      };   
+  const logout = async () => {
+      await signOut(auth); 
+      alert('정상적으로 로그아웃 되었습니다.')
+      navigate('/');
+  };   
 
-      const [newPassword, setNewPassword] = useState("");
+  const [newPassword, setNewPassword] = useState("");
 
-      const pwdChanged = async () => { 
-        try {
-          if (user) {
-            updatePassword(user, newPassword);
-          } else {
-            alert("로그인 하세요.");
-          }
-        } catch (error) {
-          console.log(error);
-        }
-      };
-
-      const handlePw = (e) => {
-        setNewPassword(e.target.value);
-        const regex = 
-          /^(?=.*[a-zA-z])(?=.*[0-9])(?=.*[$`~!@$!%*#^?&\\(\\)\-_=+])(?!.*[^a-zA-z0-9$`~!@$!%*#^?&\\(\\)\-_=+]).{8,20}$/;
-        if (regex.test(e.target.value)) {
-          setPwValid(true);
-        } else {
-          setPwValid(false);
-        }
-      };
-
-      function pwdChange(){
-        document.querySelector('.mw').style.display='block';
+  const pwdChanged = async () => { 
+    try {
+      if (user) {
+        updatePassword(user, newPassword);
+      } else {
+        alert("로그인 하세요.");
       }
+    } catch (error) {
+      console.log(error);
+    }
+  };
 
-      function close(){
-        alert("비밀번호 변경이 완료됐습니다.");
-        document.querySelector('.mw').style.display='none'
-      }
+  const handlePw = (e) => {
+    setNewPassword(e.target.value);
+    const regex = 
+      /^(?=.*[a-zA-z])(?=.*[0-9])(?=.*[$`~!@$!%*#^?&\\(\\)\-_=+])(?!.*[^a-zA-z0-9$`~!@$!%*#^?&\\(\\)\-_=+]).{8,20}$/;
+    if (regex.test(e.target.value)) {
+      setPwValid(true);
+    } else {
+      setPwValid(false);
+    }
+  };
+
+  function pwdChange(){
+    document.querySelector('.mw').style.display='block';
+  }
+
+  function close(){
+    alert("비밀번호 변경이 완료됐습니다.");
+    document.querySelector('.mw').style.display='none'
+  }
   return (
     <main id="main" className="container left_p">
        <h1 className='mypage_title'>My Porsche</h1>
@@ -95,7 +95,6 @@ function MyPage() {
               </div>
             </div>
        </div>
-
     </main>
   );
 }

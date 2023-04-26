@@ -1,10 +1,9 @@
 import React, {useState, useEffect } from 'react';
-import { Link, useNavigate, Route, Routes, NavLink } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 
 import 'styles/page/model.css'
 
 function ModelNav(){
-
     return(
         <section className='container left_p'>
             <div className='box_wrap'>

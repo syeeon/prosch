@@ -1,81 +1,131 @@
 import React, { useState, useEffect } from 'react';
-import {Link, useNavigate} from 'react-router-dom' 
+import {useNavigate} from 'react-router-dom' 
 
 import 'styles/responsive/rejoin.css'
 import 'styles/page/join.css'
 
 import {
-    createUserWithEmailAndPassword,	
-    onAuthStateChanged,			
-  } from "firebase/auth";
-  import { auth } from "../firebase";
+  createUserWithEmailAndPassword,	
+  onAuthStateChanged,			
+} from "firebase/auth";
+import { auth } from "../firebase";
 
 function Join() {
 
-    const [registerEmail, setRegisterEmail] = useState("");
-    const [registerPassword, setRegisterPassword] = useState("");
-    const [user, setUser] = useState({});
+  const [registerEmail, setRegisterEmail] = useState("");
+  const [registerPassword, setRegisterPassword] = useState("");
+  const [user, setUser] = useState({});
     
-    useEffect(() => {
-        onAuthStateChanged(auth, (currentUser) => {  
-        setUser(currentUser);
-        });
-    }, [user]);
+  useEffect(() => {
+      onAuthStateChanged(auth, (currentUser) => {  
+      setUser(currentUser);
+      });
+  }, [user]);
 
-    console.log(user);
+  //console.log(user);
 
-    const checkBox = document.getElementById("chk_all")
-    function checkAll(){
-        if (checkBox.checked==true){  //id 를 사용하여 하나의 객체만을 호출
-              for(let i=0;i<5;i++) document.getElementsByName("apply")[i].checked=true;   //name 을 사용하여 배열 형태로 담아 호출
-           } 
-           if (checkBox.checked==false){
-              for(let i=0;i<5;i++) document.getElementsByName("apply")[i].checked=false;  
-           }
-     }
+  const checkBox = document.getElementById("chk_all");
+  function checkAll(){
+    if (checkBox.checked==true){ 
+      for (let i=0;i<5;i++) document.getElementsByName("apply")[i].checked=true;   
+    } if (checkBox.checked==false){
+        for (let i=0;i<5;i++) document.getElementsByName("apply")[i].checked=false;  
+      }
+  }
 
-    const navigate = useNavigate();
+  const [allCheck, setAllCheck] = useState(false);
+  const [CheckOne, setCheckOne] = useState(false);
+  const [CheckTwo, setCheckTwo] = useState(false);
+  const [CheckThree, setCheckThree] = useState(false);
+   
+  const allBtnEvent =()=>{
+    if (allCheck === false) {
+      setAllCheck(true);
+      setCheckOne(true);
+      setCheckTwo(true);
+      setCheckThree(true);
+    } else {
+      setAllCheck(false);
+      setCheckOne(false);
+      setCheckTwo(false);
+      setCheckThree(false);
+    } 
+  };
+     
+  const CheckOneEvent =()=>{
+    if (CheckOne === false) {
+    setCheckOne(true);
+  } else {
+    setCheckOne(false);
+    }
+  };
+     
+  const CheckTwoEvent =()=>{
+    if (CheckTwo === false) {
+    setCheckTwo(true);
+    } else {
+    setCheckTwo(false);
+    }
+  };
+     
+  const CheckThreeEvent =()=>{
+    if (CheckThree === false) {
+    setCheckThree(true);
+    } else {
+    setCheckThree(false);
+    }
+  };
+   
+  useEffect(()=>{
+    if (CheckOne === true && CheckTwo === true && CheckThree === true){
+      setAllCheck(true);
+    } else {
+      setAllCheck(false);
+    }
+  }, [CheckOne,CheckTwo, CheckThree])
+   
 
-    const register = async () => {  
-        try {
-          const user = await createUserWithEmailAndPassword(auth, registerEmail, registerPassword);
-          console.log(user);
-          if (checkBox.checked == true) {
-              navigate('/joinFinish');
-          } else {
-            alert('이용 약관 전체 동의에 체크해주세요.')
-          }
-        } catch (error) {
-          console.log(error.message);
-          alert('잘못된 정보입니다.')
-        } 
-      };
+  const navigate = useNavigate();
 
-      const [emailValid, setEmailValid] = useState(false);
-      const [pwValid, setPwValid] = useState(false);
+  const register = async () => {  
+    try {
+      if (checkBox.checked == true) {
+        const user = await createUserWithEmailAndPassword(auth, registerEmail, registerPassword);
+        //console.log(user);
+        navigate('/joinFinish');
+      } else {
+        alert('이용 약관 전체 동의에 체크해주세요.');
+      }
+    } catch (error) {
+      //console.log(error.message);
+      alert('잘못된 정보입니다.');
+    } 
+  };
 
-      const handleEmail = (e) => {
-        setRegisterEmail(e.target.value);
-        const regex = 
-          /^(([^<>()\[\].,;:\s@"]+(\.[^<>()\[\].,;:\s@"]+)*)|(".+"))@(([^<>()[\].,;:\s@"]+\.)+[^<>()[\].,;:\s@"]{2,})$/i;
-        if (regex.test(e.target.value)) {
-          setEmailValid(true);
-        } else {
-          setEmailValid(false)
-        }
-      };
+  const [emailValid, setEmailValid] = useState(false);
+  const [pwValid, setPwValid] = useState(false);
+
+  const handleEmail = (e) => {
+    setRegisterEmail(e.target.value);
+    const regex = 
+      /^(([^<>()\[\].,;:\s@"]+(\.[^<>()\[\].,;:\s@"]+)*)|(".+"))@(([^<>()[\].,;:\s@"]+\.)+[^<>()[\].,;:\s@"]{2,})$/i;
+    if (regex.test(e.target.value)) {
+      setEmailValid(true);
+    } else {
+      setEmailValid(false)
+    }
+  };
   
-      const handlePw = (e) => {
-        setRegisterPassword(e.target.value);
-        const regex = 
-          /^(?=.*[a-zA-z])(?=.*[0-9])(?=.*[$`~!@$!%*#^?&\\(\\)\-_=+])(?!.*[^a-zA-z0-9$`~!@$!%*#^?&\\(\\)\-_=+]).{8,20}$/;
-        if (regex.test(e.target.value)) {
-          setPwValid(true);
-        } else {
-          setPwValid(false)
-        }
-      };
-
+  const handlePw = (e) => {
+    setRegisterPassword(e.target.value);
+    const regex = 
+      /^(?=.*[a-zA-z])(?=.*[0-9])(?=.*[$`~!@$!%*#^?&\\(\\)\-_=+])(?!.*[^a-zA-z0-9$`~!@$!%*#^?&\\(\\)\-_=+]).{8,20}$/;
+    if (regex.test(e.target.value)) {
+      setPwValid(true);
+    } else {
+      setPwValid(false)
+    }
+  };
 
   return (
     <div>
@@ -118,28 +168,20 @@ function Join() {
                 <div className="chk_wrap">
                     <div>
                         <input type="checkbox" id="chk_all" onClick={() => {
-                             checkAll() }}/>
+                             checkAll() }}  checked={allCheck} onChange={allBtnEvent} />
                         <label htmlFor="chk_1">전체 동의</label>
                     </div>
                     <div>
-                        <input type="checkbox" id="chk_1" name="apply" />
+                        <input type="checkbox" id="chk_1" name="apply" checked={CheckOne} onChange={CheckOneEvent} />
                         <label htmlFor="chk_1">저는 이용약관의 내용을 확인하였으며, 이에 동의합니다.</label>
                     </div>
                     <div>
-                        <input type="checkbox" id="chk_2" name="apply" />
+                        <input type="checkbox" id="chk_2" name="apply" checked={CheckTwo} onChange={CheckTwoEvent} />
                         <label htmlFor="chk_2">저는 개인정보 수집∙이용 동의서 의 내용을 확인하였으며, 이에 동의합니다.</label>
                     </div>
                     <div>
-                        <input type="checkbox" id="chk_3" name="apply" />
+                        <input type="checkbox" id="chk_3" name="apply" checked={CheckThree} onChange={CheckThreeEvent}  />
                         <label htmlFor="chk_3">저는 개인정보 제3자 제공 동의서 의 내용을 확인하였으며, 이에 동의합니다.</label>
-                    </div>
-                    <div>
-                        <input type="checkbox" id="chk_4" name="apply" />
-                        <label htmlFor="chk_4">저는 개인정보 국외 이전 동의서 의 내용을 확인하였으며, 이에 동의합니다.</label>
-                    </div>
-                    <div>
-                        <input type="checkbox" id="chk_5" name="apply" />
-                        <label htmlFor="chk_5">저는 만 14세 이상 입니다.</label>
                     </div>
                     <p id="err_apply" className="err_txt"></p>
                 </div>

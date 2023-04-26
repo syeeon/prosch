@@ -1,5 +1,4 @@
 import { useState } from 'react';
-import {Link} from 'react-router-dom' 
 
 import 'styles/common/footer.css'
 import 'styles/responsive/reFooter.css'

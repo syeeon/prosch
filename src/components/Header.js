@@ -3,10 +3,6 @@ import {Link} from 'react-router-dom'
 
 import 'styles/common/header.css'
 import 'styles/responsive/reHeader.css'
-import Main from 'page/main'
-import Login from 'page/login'
-import Model718 from 'page/model_718'
-import MyPage from 'page/mypage'
 
 import {
   onAuthStateChanged,			
@@ -30,17 +26,16 @@ function Header() {
             <nav className="gnb_wrap">
               <ul className='gnb'>
                 <li className="material-symbols-outlined item slidebtn">menu</li>
-                <li><Link to="model_718" className='item'>Model</Link></li>
+                <li><Link to="/model_718" className='item'>Model</Link></li>
                 {
                   user?.email == null
-                  ? <li><Link to="login" className='item'>Login</Link></li>
-                  : <li><Link to="mypage" className='item'>Mypage</Link></li>
+                  ? <li><Link to="/login" className='item'>Login</Link></li>
+                  : <li><Link to="/mypage" className='item'>Mypage</Link></li>
                 }
                 <li className="material-symbols-outlined item">search</li>
               </ul>
             </nav>
           </header>
-
   );
 }
 

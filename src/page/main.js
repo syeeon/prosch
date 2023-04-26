@@ -1,5 +1,4 @@
-import React, {Component, Link} from 'react';
-
+import React, {Component} from 'react';
 
 import 'styles/page/main.css'
 import 'styles/responsive/reMain.css'
@@ -87,7 +86,6 @@ function Main() {
                 </li> 
             </Slider>
         </section>
-
         <section className="models">
             <h2 className="title containerwrap">Models</h2>
             <div className="model_wrap">

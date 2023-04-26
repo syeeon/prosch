@@ -7,66 +7,65 @@ import 'styles/responsive/reLogin.css';
 import {
     signInWithEmailAndPassword,	
     onAuthStateChanged,								
-  } from "firebase/auth";
-  import { auth } from "../firebase";
+} from "firebase/auth";
+import { auth } from "../firebase";
 
 function Login() {
 
-    const [loginEmail, setLoginEmail] = useState("");
-    const [loginPassword, setLoginPassword] = useState("");
+  const [loginEmail, setLoginEmail] = useState("");
+  const [loginPassword, setLoginPassword] = useState("");
+  const [user, setUser] = useState({});
+    
+  useEffect(() => {
+    onAuthStateChanged(auth, (currentUser) => { 
+      setUser(currentUser);
+    });
+  }, [user]);
+    
+  //console.log(user);
 
-    const [user, setUser] = useState({});
+  const navigate = useNavigate();
     
-    useEffect(() => {
-      onAuthStateChanged(auth, (currentUser) => { 
-        setUser(currentUser);
-      });
-    }, [user]);
+  const login = async () => {  
+    try {
+      const user = await signInWithEmailAndPassword(auth, loginEmail, loginPassword);
+      alert("로그인에 성공했습니다.");
+      navigate('/mypage');
+      console.log(loginEmail)
+    } catch (error) {
+      alert("등록된 정보가 없습니다.");
+    }
+  };
     
-    //console.log(user);
+  function ch_bg(){
+    if (matchMedia("screen and (min-width : 769px").matches)
+    document.querySelector('.body').style.backgroundImage="url(img/login/login_on.jpg)"
+  };
+    
+  const [emailValid, setEmailValid] = useState(false);
+  const [pwValid, setPwValid] = useState(false);
 
-    const navigate = useNavigate();
-    
-    const login = async () => {  
-      try {
-        const user = await signInWithEmailAndPassword(auth, loginEmail, loginPassword);
-        alert("로그인에 성공했습니다.")
-        navigate('/mypage');
-        console.log(loginEmail)
-      } catch (error) {
-        alert("등록된 정보가 없습니다.")
-      }
-    };
-    
-    function ch_bg(){
-      if (matchMedia("screen and (min-width : 769px").matches)
-      document.querySelector('.body').style.backgroundImage="url(img/login/login_on.jpg)"
-    };
-    
-    const [emailValid, setEmailValid] = useState(false);
-    const [pwValid, setPwValid] = useState(false);
+  const handleEmail = (e) => {
+    setLoginEmail(e.target.value);
+    const regex = 
+      /^(([^<>()\[\].,;:\s@"]+(\.[^<>()\[\].,;:\s@"]+)*)|(".+"))@(([^<>()[\].,;:\s@"]+\.)+[^<>()[\].,;:\s@"]{2,})$/i;
+    if (regex.test(e.target.value)) {
+      setEmailValid(true);
+    } else {
+      setEmailValid(false)
+    }
+  };
 
-    const handleEmail = (e) => {
-      setLoginEmail(e.target.value);
-      const regex = 
-        /^(([^<>()\[\].,;:\s@"]+(\.[^<>()\[\].,;:\s@"]+)*)|(".+"))@(([^<>()[\].,;:\s@"]+\.)+[^<>()[\].,;:\s@"]{2,})$/i;
-      if (regex.test(e.target.value)) {
-        setEmailValid(true);
-      } else {
-        setEmailValid(false)
-      }
-    };
-
-    const handlePw = (e) => {
-      setLoginPassword(e.target.value);
-      const regex = 
-        /^(?=.*[a-zA-z])(?=.*[0-9])(?=.*[$`~!@$!%*#^?&\\(\\)\-_=+])(?!.*[^a-zA-z0-9$`~!@$!%*#^?&\\(\\)\-_=+]).{8,20}$/;
-      if (regex.test(e.target.value)) {
-        setPwValid(true);
-      } else {
-        setPwValid(false)
-      }
-    };
+  const handlePw = (e) => {
+    setLoginPassword(e.target.value);
+    const regex = 
+      /^(?=.*[a-zA-z])(?=.*[0-9])(?=.*[$`~!@$!%*#^?&\\(\\)\-_=+])(?!.*[^a-zA-z0-9$`~!@$!%*#^?&\\(\\)\-_=+]).{8,20}$/;
+    if (regex.test(e.target.value)) {
+      setPwValid(true);
+    } else {
+      setPwValid(false)
+    }
+  };
   return (
       <div className='body container'>
           <section className="login_box">
