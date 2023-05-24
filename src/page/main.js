@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React from 'react';
 
 import 'styles/page/main.css'
 import 'styles/responsive/reMain.css'
